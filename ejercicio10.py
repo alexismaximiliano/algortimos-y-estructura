@@ -5,7 +5,10 @@
 # (1 = Lunes, 2 = Martes, ..., 7 = Domingo). 
 # Validar que el número esté en el rango correcto.
 
+# pide al usuario un numero 
 dia=int(input("Ingrese un número del 1 al 7 para conocer el día de la semana: "))
+
+# muestra el dia de la semana segun el numero ingresado
 if dia == 1:
     print("el dia seleccionado es lunes")
 elif dia == 2:
@@ -20,5 +23,7 @@ elif dia == 6:
     print("el dia seleccionado es sábado")
 elif dia == 7:
     print("el dia seleccionado es domingo")
+    
+    # validacion de que el numero ingresado sea correcto
 else:
     print("Numero invalido. ingrese un numero del 1 al 7.")
