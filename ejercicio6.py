@@ -1,13 +1,30 @@
-# nombre: Alexis Cañete
-# ejercicio 6: mayor de edad
+# ejercicio 6: Adivina el numero secreto
+# alumno: Alexis Cañete
 
-# Solicitar la edad de una persona y determinar si es mayor de edad (18 años o más). 
-# Mostrar "Eres mayor de edad" o "Eres menor de edad" según corresponda.
+import random
 
-# solicitar la edad al usuario
-edad = int(input("¿Cuántos años tienes? "))
-# determinar si es mayor de edad
-if edad >= 18:
-    print("Eres mayor de edad")
-else:
-    print("Eres menor de edad")
+# determinar el numero que "elije" la computadora y inicializar el contador
+numero=random.randint(0,100)
+cont=1
+
+# pedir al usuario un numero y verificar si es el mismo de la computadora
+usuario=int(input("Ingrese numero: "))
+if(numero==usuario):    
+    print("el numero es correcto")
+
+# inciar bucle con la logica del juego 
+while(usuario!=numero):
+    cont+=1
+    if(usuario<numero):
+        print("el numero es MAYOR")
+    else:
+        print("el numero es MENOR")
+    if(cont==6):
+        print("ULTIMO INTENTO")
+    if(cont==7):
+        print("Perdiste!")
+        break
+    usuario=int(input("Ingrese numero: "))
+    if(numero==usuario):    
+        print("el numero es correcto")
+print("Numero de intentos: ",cont)

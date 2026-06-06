@@ -1,18 +1,18 @@
-# nombre: Alexis Cañete
-# ejercicio 7: Calculadora de area de un rectangulo
+# ejercicio 7: suma de digitos de un numero
+# alumno: Alexis Cañete
 
-# Solicitar la base y la altura de un rectángulo, calcular y mostrar el área. 
-# Validar que los valores ingresados sean positivos.
+# solicitar numero al usuario y verificar si es correcto
+numero=int(input("Ingrese un numero entero positivo: "))
+numeroOriginal=numero
+if(numero<0):
+    print("el numero ingresado no es correcto.")
+    exit()
 
-# Solicitar la base y la altura del rectángulo
-base = float(input("Ingrese la base del rectángulo: "))
-altura = float(input("Ingrese la altura del rectángulo: "))
-
-# Validar que los valores sean positivos
-if base > 0 and altura > 0:
-    # Calcular el área del rectángulo
-    area = base * altura
-    # Mostrar el resultado
-    print(f"El área del rectángulo es: {area}")
-else:
-    print("Ingrese valores positivos para la base y la altura.")
+# aplicar las operaciones para obtener el resutado
+suma=0
+while(numero>0):
+    digito=numero%10 #seleccionar ultimo digito del numero
+    suma+=digito    #sumar ese numero al contador "suma"
+    numero=numero//10   #quitar ultimo digito
+    
+print("suma de los digitos de ",numeroOriginal,": ",suma)

@@ -1,22 +1,44 @@
-# nombre:Alexis Cañete
-# ejercicio 3:suma de dos numeros
+# ejercicio 3: tarifa de estacionamiento
+# alumno: Alexis Cañete
 
-# Crear un programa que pida dos números al usuario y muestre su suma, resta, multiplicación y división.
-# Asegurarse de que el segundo número no sea cero para la división.
+# pedir los datos de entrada
+tipoVehiculo=int(input("ingrese su tipo de vehiculo (1=auto 2=moto 3= camioneta): "))
+horaEntrada=int(input("ingrese la hora de entrada: "))
+estadia=int(input("ingrese la cantidad de horas que se va quedar: "))
 
-# solicitar los números al usuario
-num1 = int(input("Ingrese el primer número: "))
-num2 = int(input("Ingrese el segundo número: "))
-# si el segundo número es cero, solicitar otro número
-while num2 == 0:
-    num2 = int(input("Ingrese un segundo número diferente de cero: "))
-# realizar las operaciones
-suma = num1 + num2
-resta = num1 - num2
-multiplicacion = num1 * num2
-division = num1 / num2
-# mostrar los resultados
-print(f"La suma de {num1} y {num2} es: {suma}")
-print(f"La resta de {num1} y {num2} es: {resta}")
-print(f"La multiplicación de {num1} y {num2} es: {multiplicacion}")
-print(f"La división de {num1} y {num2} es: {division}")
+# verificar los errores
+if(1<tipoVehiculo<3):
+    print("ERROR: tipo de vehiculo no correcto")
+if(0<horaEntrada<23 or estadia<0):
+    print("ERROR: horas ingresadas incorrectas")
+
+# determinar la tarifa segun el vehiculo seleccionado
+if(tipoVehiculo==1): #moto
+    tarifa=8000
+elif(tipoVehiculo==2): #auto
+    tarifa=500
+elif(tipoVehiculo==3): #camioneta
+    tarifa=1200
+
+tarifaBase=tarifa*estadia
+
+# calcular la recarga segun la hora y el descuento segun la estadia
+if(22<=horaEntrada<=23 or 0<=horaEntrada<=6): #nocturno
+    recarga=0.40
+elif(7<=horaEntrada<=9 or 17<=horaEntrada<=19): #pico
+    recarga=0.20
+else:
+    recarga=0
+
+recargaTotal=tarifaBase*recarga
+
+if(estadia>8):
+    descuento=0.15
+descuentoTotal=tarifaBase*descuento
+
+# motrar los resultados
+print("")
+print("Tarifa base: $",tarifaBase)
+print("descuento permanencia: -$",descuentoTotal)
+print("recargo nocturno: +$",recargaTotal)
+print("TOTAL A PAGAR: $",tarifaBase+recargaTotal-descuentoTotal)

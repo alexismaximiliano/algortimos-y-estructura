@@ -1,13 +1,28 @@
-# nombre:Alexis Cañete
-# ejercicio 4: Conversor de grados
+# ejercicio 4:determinacion de cuadrante,eje y distancia al origen
+# alumno: Alexis Cañete
 
-# Solicitar una temperatura en grados Celsius y convertirla a Fahrenheit
-# usando la fórmula: °F = (°C × 9/5) + 32. Mostrar ambos valores.
+x=int(input("ingrese valor de coordenada X: "))
+y=int(input("ingrese valor de coordenada Y: "))
 
-# solicitar la temperatura en grados Celsius
-celsius = float(input("Ingrese la temperatura en grados Celsius: "))
-# convertir a Fahrenheit
-fahrenheit = (celsius * 9/5) + 32
-# mostrar los resultados
-print(f"La temperatura en grados Celsius es: {celsius}")
-print(f"La temperatura en grados Fahrenheit es: {fahrenheit}")
+print("")
+
+if(x==0 and y==0):
+    print("Las coordenadas estan en el punto de origen")
+else:
+    if(x>0):
+        if(y>0):
+            print("UBICACION: Cuadrante I")
+        else:
+            print("UBICACION: Cuadrante IV")
+    else:
+        if(y<0):
+            print("UBICACION: cuadrante III")
+        else:
+            print("UBICACION: cuadrante II")
+
+distancia=(x**2+y**2)**0.5
+print(f"DISTANCIA AL ORIGEN: {distancia :.4f}")
+
+print("SIMETRIA CON EL EJE X: (",x,",",y*-1,")")
+print("SIMETRIA CON EL EJE Y: (",x*-1,",",y,")")
+print("SIMETRIA CON EL ORIGEN: (",x*-1,",",y*-1,")")
